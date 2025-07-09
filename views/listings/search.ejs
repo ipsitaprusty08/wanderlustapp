@@ -1,0 +1,48 @@
+
+<% layout("/layouts/boilerplate") -%>
+<style>
+.card{
+    margin-bottom: 30px;
+}
+.card-body{
+    margin-top: 20px;
+    margin-left: 10px;
+}
+.image-card{
+    border-radius: 0;
+}
+.details{
+    
+    background-color: #d33c46;
+    color: white;
+    margin-bottom: 10px;
+}
+</style>
+<div class="container mt-4">
+    <% if (error) { %>
+        <div class="alert alert-danger"><%= error %></div>
+    <% } %>
+
+    <% if (listings && listings.length > 0) { %>
+        <div class="row">
+            <% listings.forEach(listing => { %>
+                <div class="col-md-4 mb-4 full-card">
+                    <div class="card ">
+                        <img src="<%= listing.image.url %>" class="card-img image-card" alt="Listing image">
+                        <div class="card-body">
+                            <h6 class="card-title"><%= listing.title %></h6>
+                            
+                            <p class="card-text">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <%= listing.location %>, <%= listing.country %>
+                            </p>
+                            <a href="/listings/<%= listing._id %>" class="btn  details">Explore</a>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    <% } else if (!error) { %>
+        <div class="alert alert-info">No listings found for this search.</div>
+    <% } %>
+</div>
