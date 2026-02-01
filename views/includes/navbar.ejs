@@ -17,7 +17,7 @@
         
         <div class="navbar-nav  logo ">
          
-          <% if(!currUser) {%>
+          <% if (typeof currUser === "undefined" || !currUser) { %>
             <div class="nav3">
           <a class="nav-link "  href="/signup">
             <b>SignUp</b></a>
