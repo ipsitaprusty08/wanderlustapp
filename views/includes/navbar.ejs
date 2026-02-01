@@ -25,7 +25,8 @@
             <div class="nav4">
           <a class="nav-link" href="/login"><b>Login</b></a>
           </div>
-          <%}%><% if(currUser) {%>
+          <%}%><% if (typeof currUser !== "undefined" && currUser) { %>
+
             <div class="nav5">
             <a class="nav-link" href="/logout"><b>Logout</b></a>
             </div>
